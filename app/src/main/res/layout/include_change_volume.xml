@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/tv_pro_play"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        />
+
+
+    <RelativeLayout
+        android:id="@+id/gesture_volume_layout"
+        android:layout_width="120dip"
+        android:layout_height="100dip"
+        android:layout_centerInParent="true"
+        android:background="@drawable/souhu_player_gesture_bg"
+        android:gravity="center"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/gesture_iv_player_volume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/souhu_player_volume" />
+
+        <TextView
+            android:id="@+id/geture_tv_volume_percentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/gesture_iv_player_volume"
+            android:layout_centerHorizontal="true"
+            android:gravity="right"
+            android:text="80%"
+            android:textColor="#ffececec" />
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
