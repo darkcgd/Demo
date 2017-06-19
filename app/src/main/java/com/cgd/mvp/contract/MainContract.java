@@ -1,5 +1,6 @@
 package com.cgd.mvp.contract;
 
+import com.cgd.bean.MainData;
 import com.cgd.mvp.base.BaseModel;
 import com.cgd.mvp.base.BasePresenter;
 import com.cgd.mvp.base.BaseView;
@@ -10,7 +11,10 @@ import com.cgd.mvp.base.BaseView;
 
 public interface MainContract {
     interface View extends BaseView{
-
+        void start();
+        void onSucceed(MainData data);
+        void fail(String info);
+        void end();
     }
 
     interface Model extends BaseModel{

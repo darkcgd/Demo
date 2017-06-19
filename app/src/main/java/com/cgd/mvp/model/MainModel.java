@@ -8,6 +8,7 @@ import com.cgd.mvp.contract.MainContract;
  */
 
 public class MainModel implements MainContract.Model{
+
     @Override
     public void getData() {
 
