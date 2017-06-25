@@ -5,5 +5,6 @@ package com.cgd.view;
  */
 
 public interface IRetrofitView {
-
+    void setText(String content);
+    void handlerError(String errorMsg);
 }

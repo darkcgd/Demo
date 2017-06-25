@@ -1,8 +1,11 @@
 package com.cgd.presenter;
 
+import com.cgd.bean.BusListBean;
 import com.cgd.callback.IBaseResultCallBack;
 import com.cgd.model.RetrofitModel;
 import com.cgd.view.IRetrofitView;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 /**
  * Created by cgd on 2017/6/25.
@@ -27,11 +30,11 @@ public class RetrofitPresenter implements IBasePresenter,IBaseResultCallBack{
 
     @Override
     public void onSuccess(String content) {
-
+        retrofitView.setText(content);
     }
 
     @Override
     public void onFailure(String errorMsg) {
-
+        retrofitView.handlerError(errorMsg);
     }
 }
