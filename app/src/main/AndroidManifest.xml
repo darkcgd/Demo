@@ -25,7 +25,8 @@
             android:configChanges="orientation|keyboardHidden|screenSize" />
         <activity android:name=".activity.GestureModifyVolumeActivity" />
         <activity android:name=".activity.RippleActivity" />
-        <activity android:name=".activity.MVPActivity"></activity>
+        <activity android:name=".activity.MVPActivity" />
+        <activity android:name=".activity.RetrofitActivity"></activity>
     </application>
 
 </manifest>

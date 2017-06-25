@@ -14,6 +14,7 @@ import android.widget.Button;
 import com.cgd.activity.GestureModifyVolumeActivity;
 import com.cgd.activity.MVPActivity;
 import com.cgd.activity.PullRefreshActivity;
+import com.cgd.activity.RetrofitActivity;
 import com.cgd.activity.RippleActivity;
 import com.cgd.activity.SceenChangeActivity;
 import com.cgd.bean.Params;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(new Params("手势滑动调节音量",GestureModifyVolumeActivity.class));
         list.add(new Params("水波纹效果",RippleActivity.class));
         list.add(new Params("MVP",MVPActivity.class));
+        list.add(new Params("Retrofit",RetrofitActivity.class));
     }
 
 
