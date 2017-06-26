@@ -5,6 +5,7 @@ package com.cgd.view;
  */
 
 public interface IRetrofitView {
-    void setText(String content);
-    void handlerError(String errorMsg);
+    void setBusData(String content);
+    void setRegionData(String content);
+    void handlerError(String url,String errorMsg);
 }

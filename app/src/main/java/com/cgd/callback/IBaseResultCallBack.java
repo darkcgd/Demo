@@ -5,6 +5,6 @@ package com.cgd.callback;
  */
 
 public interface IBaseResultCallBack {
-    void onSuccess(String content);
-    void onFailure(String errorMsg);
+    void onSuccess(String url,String content);
+    void onFailure(String url,String errorMsg);
 }
