@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.cgd.activity.DayNightActivity;
 import com.cgd.activity.GestureModifyVolumeActivity;
 import com.cgd.activity.MVPActivity;
 import com.cgd.activity.PopInPopUpActivity;
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(new Params("Rxjava",RxjavaActivity.class));
         list.add(new Params("淡入淡出",PopInPopUpActivity.class));
         list.add(new Params("Retrofit",RetrofitActivity.class));
+        list.add(new Params("夜间模式",DayNightActivity.class));
     }
 
 
