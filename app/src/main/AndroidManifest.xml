@@ -28,7 +28,8 @@
         <activity android:name=".activity.RxjavaActivity" />
         <activity android:name=".activity.MVPActivity" />
         <activity android:name=".activity.RetrofitActivity" />
-        <activity android:name=".activity.DayNightActivity"></activity>
+        <activity android:name=".activity.DayNightActivity" />
+        <activity android:name=".activity.TestDayNightActivity"></activity>
     </application>
 
 </manifest>
