@@ -13,6 +13,7 @@ import android.widget.Button;
 
 import com.cgd.activity.DayNightActivity;
 import com.cgd.activity.GestureModifyVolumeActivity;
+import com.cgd.activity.GestureModifyVolumeBrightActivity;
 import com.cgd.activity.MVPActivity;
 import com.cgd.activity.PopInPopUpActivity;
 import com.cgd.activity.PullRefreshActivity;
@@ -20,6 +21,7 @@ import com.cgd.activity.RetrofitActivity;
 import com.cgd.activity.RippleActivity;
 import com.cgd.activity.RxjavaActivity;
 import com.cgd.activity.SceenChangeActivity;
+import com.cgd.activity.VerticalPageSeekBarActivity;
 import com.cgd.bean.Params;
 
 import java.util.ArrayList;
@@ -43,12 +45,14 @@ public class MainActivity extends AppCompatActivity {
         list.add(new Params("下拉刷新",PullRefreshActivity.class));
         list.add(new Params("屏幕旋转",SceenChangeActivity.class));
         list.add(new Params("手势滑动调节音量",GestureModifyVolumeActivity.class));
+        list.add(new Params("手势滑动调节音量亮度快进快退",GestureModifyVolumeBrightActivity.class));
         list.add(new Params("水波纹效果",RippleActivity.class));
         list.add(new Params("MVP",MVPActivity.class));
         list.add(new Params("Rxjava",RxjavaActivity.class));
         list.add(new Params("淡入淡出",PopInPopUpActivity.class));
         list.add(new Params("Retrofit",RetrofitActivity.class));
         list.add(new Params("夜间模式",DayNightActivity.class));
+        list.add(new Params("垂直SeekBar",VerticalPageSeekBarActivity.class));
     }
 
 

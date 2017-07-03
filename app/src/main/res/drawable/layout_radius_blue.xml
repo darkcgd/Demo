@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    />
+
+
+
+    <!-- 填充 -->
+    <solid android:color="#1F3F63" />
+
+
+    <!-- 圆角 -->
+    <corners
+        android:topLeftRadius="200px"
+        android:topRightRadius="200px"
+        android:bottomLeftRadius="200px"
+        android:bottomRightRadius="200px"/><!-- 设置圆角半径 -->
+
+    <!-- 描边 -->
+    <!--<stroke
+        android:width="2px"
+        android:color="#1F3F63"
+        />-->
+
+</shape>
