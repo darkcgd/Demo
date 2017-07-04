@@ -17,5 +17,18 @@
 
    <attr name="clockBackground" format="color" />
    <attr name="clockTextColor" format="color" />
-    
+
+
+   <declare-styleable name="VerticalColorSeekBar">
+
+      <attr name="vp_progress" format="float"/>
+      <attr name="vp_max" format="float"/>
+
+      <attr name="vp_unfinished_color" format="color"/>
+      <attr name="vp_text_color" format="color"/>
+      <attr name="vp_finished_color" format="color"/>
+      <attr name="vp_hasline" format="boolean"/>
+      <attr name="vp_hasText" format="boolean"/>
+
+   </declare-styleable>
 </resources>

@@ -21,6 +21,8 @@ import com.cgd.activity.RetrofitActivity;
 import com.cgd.activity.RippleActivity;
 import com.cgd.activity.RxjavaActivity;
 import com.cgd.activity.SceenChangeActivity;
+import com.cgd.activity.ScrllowViewActivity;
+import com.cgd.activity.VerticalColorSeekBarActivity;
 import com.cgd.activity.VerticalPageSeekBarActivity;
 import com.cgd.bean.Params;
 
@@ -53,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
         list.add(new Params("Retrofit",RetrofitActivity.class));
         list.add(new Params("夜间模式",DayNightActivity.class));
         list.add(new Params("垂直SeekBar",VerticalPageSeekBarActivity.class));
+        list.add(new Params("SeekBar多色进度条",VerticalColorSeekBarActivity.class));
+        list.add(new Params("滑动置顶",ScrllowViewActivity.class));
     }
 
 

@@ -31,7 +31,9 @@
         <activity android:name=".activity.DayNightActivity" />
         <activity android:name=".activity.TestDayNightActivity" />
         <activity android:name=".activity.VerticalPageSeekBarActivity" />
-        <activity android:name=".activity.GestureModifyVolumeBrightActivity"></activity>
+        <activity android:name=".activity.GestureModifyVolumeBrightActivity" />
+        <activity android:name=".activity.ScrllowViewActivity" />
+        <activity android:name=".activity.VerticalColorSeekBarActivity"></activity>
     </application>
 
 </manifest>
