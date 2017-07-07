@@ -1,164 +1,143 @@
 package com.cgd.widget;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
-import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.Shader;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
-
-import com.cgd.R;
 
 /**
  * Created by cgd on 2016/10/21.
  */
 public class VerticalColorSeekBar extends View{
 
-	private Paint mFinishPaint;// 画笔
-	private float progress;// 进度值
-
-	private float max;// 进度值
-	private int width;// 宽度值
-	private int height;// 高度值
-	private final int default_finished_color = Color.rgb(252, 152, 12);
-	private final int default_unfinished_color = Color.rgb(204, 204, 204);
-	private int mFinishColor;
-	private int mUnFinishColor;
-	private int mTextColor;
-	private float default_max = 100;
-	private Paint mUnFinishPaint;
-	private boolean mHasLine;
-	private boolean mHasText;
-	private Paint mTextPaint;
-
-
-	public VerticalColorSeekBar(Context context, AttributeSet attrs) {
-		this(context, attrs, 0);
-		initPaint();
-	}
+	private static final String TAG = VerticalColorSeekBar.class.getSimpleName();
+	private int startColor= Color.WHITE;
+	private int middleColor = Color.WHITE;
+	private int endColor=Color.WHITE;
+	private int thumbColor=Color.WHITE;
+	private int thumbBorderColor=Color.WHITE;
+	private int colorArray[]={startColor, middleColor, endColor};
+	private float x,y;
+	private float mRadius;
+	private float progress;
+	private float maxCount = 100f;
+	private float sLeft, sTop, sRight, sBottom;
+	private float sWidth,sHeight;
+	private LinearGradient linearGradient;
+	private Paint paint = new Paint();
+	protected OnStateChangeListener onStateChangeListener;
 
 	public VerticalColorSeekBar(Context context) {
 		this(context, null);
-		initPaint();
 	}
 
-	public VerticalColorSeekBar(Context context, AttributeSet attrs,
-								int defStyleAttr) {
-		super(context, attrs, defStyleAttr);
-		final TypedArray attributes = context.getTheme().obtainStyledAttributes(attrs, R.styleable.VerticalColorSeekBar, defStyleAttr, 0);
-		initByAttributes(attributes);
-		attributes.recycle();
-		initPaint();
-	}
-
-	/**
-	 * @desc 初始化自定义属性
-	 * */
-	private void initByAttributes(TypedArray attributes) {
-		//设置完成进度条颜色
-		mFinishColor = attributes.getColor(R.styleable.VerticalColorSeekBar_vp_finished_color, default_finished_color);
-		//设置未完成进度条颜色
-		mUnFinishColor = attributes.getColor(R.styleable.VerticalColorSeekBar_vp_unfinished_color, default_unfinished_color);
-		//设置字体颜色
-		mTextColor = attributes.getColor(R.styleable.VerticalColorSeekBar_vp_text_color, default_unfinished_color);
-		//设置是否有边框
-		mHasLine = attributes.getBoolean(R.styleable.VerticalColorSeekBar_vp_hasline, false);
-		//设置是否有字体
-		mHasText = attributes.getBoolean(R.styleable.VerticalColorSeekBar_vp_hasText, false);
-		setMax(attributes.getFloat(R.styleable.VerticalColorSeekBar_vp_max, default_max));
-		setProgress(attributes.getFloat(R.styleable.VerticalColorSeekBar_vp_progress, 0));
-
-	}
-
-	private void initPaint() {
-		mFinishPaint = new Paint();
-		mFinishPaint.setColor(mFinishColor);// 设置完成进度画笔颜色
-
-		mUnFinishPaint = new Paint();
-		mUnFinishPaint.setColor(mUnFinishColor);// 设置未完成进度画笔颜色
-
-		mTextPaint = new Paint();
-		mTextPaint.setColor(mTextColor);// 设置文字画笔颜色
+	public VerticalColorSeekBar(Context context, AttributeSet attrs) {
+		super(context, attrs);
 	}
 
 	@Override
-	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+	protected synchronized void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-		width = getMeasuredWidth() - 1;// 宽度值
-		height = getMeasuredHeight() - 1;// 高度值
+		setMeasuredDimension(getMeasuredWidth(), getMeasuredHeight());
 	}
+
+	public void setColor(int startColor,int middleColor, int endColor,int thumbColor,int thumbBorderColor){
+		this.startColor= startColor;
+		this.middleColor = middleColor;
+		this.endColor= endColor;
+		this.thumbColor= thumbColor;
+		this.thumbBorderColor= thumbBorderColor;
+		colorArray[0] = startColor;
+		colorArray[1] = middleColor;
+		colorArray[2] = endColor;
+	}
+
 
 	@Override
 	protected void onDraw(Canvas canvas) {
-
-
-		canvas.drawRect(0, 0, width, height,
-				mUnFinishPaint);// 画未完成矩形
-		canvas.drawRect(0, height - progress / max * height, width, height,
-				mFinishPaint);// 画完成矩形
-
-		if (mHasLine) {
-
-			canvas.drawLine(0, 0, width, 0, mFinishPaint);// 画顶边
-			canvas.drawLine(0, 0, 0, height, mFinishPaint);// 画左边
-			canvas.drawLine(width, 0, width, height, mFinishPaint);// 画右边
-			canvas.drawLine(0, height, width, height, mFinishPaint);// 画底边
-		}
-
-
-		if (mHasText) {
-
-			mTextPaint.setTextSize(width / 3);// 设置文字大小
-			canvas.drawText((int)(progress/max*default_max) + "%",
-					(width - getTextWidth((int)(progress/max*default_max) + "%")) /2, height / 2, mTextPaint);// 画文字
-		}
 		super.onDraw(canvas);
+		int h = getMeasuredHeight();
+		int w = getMeasuredWidth();
+		mRadius = (float) w/2;
+		sLeft = w * 0.25f; // 背景左边缘坐标
+		sRight = w * 0.75f;// 背景右边缘坐标
+		sTop = 0;
+		sBottom = h;
+		sWidth = sRight - sLeft+30; // 背景宽度
+		sHeight = sBottom - sTop; // 背景高度
+		x = (float) w/2;//圆心的x坐标
+		y = (float) (1-0.01*progress)*sHeight;//圆心y坐标
+		drawBackground(canvas);
+		drawCircle(canvas);
+		paint.reset();
 	}
 
-	/**
-	 * 拿到文字宽度
-	 *
-	 * @param str 传进来的字符串
-	 *            return 宽度
-	 */
-	private int getTextWidth(String str) {
-		// 计算文字所在矩形，可以得到宽高
-		Rect rect = new Rect();
-		mTextPaint.getTextBounds(str, 0, str.length(), rect);
-		return rect.width();
+	private void drawBackground(Canvas canvas){
+		RectF rectBlackBg = new RectF(sLeft, sTop, sRight, sBottom);
+		linearGradient=new LinearGradient(sLeft,sTop,sWidth,sHeight,colorArray,null, Shader.TileMode.MIRROR);
+		paint.setAntiAlias(true);
+		paint.setStyle(Paint.Style.FILL);
+		//设置渲染器
+		paint.setShader(linearGradient);
+		canvas.drawRoundRect(rectBlackBg, sWidth/2, sWidth/2, paint);
 	}
 
-	public float getMax() {
-		return max;
+	private void drawCircle(Canvas canvas){
+		Paint thumbPaint = new Paint();
+		y = y < mRadius ? mRadius : y;//判断thumb边界
+		y = y > sHeight-mRadius ? sHeight-mRadius : y;
+		thumbPaint.setAntiAlias(true);
+		thumbPaint.setStyle(Paint.Style.FILL);
+		thumbPaint.setColor(thumbColor);
+		canvas.drawCircle(x, y, mRadius, thumbPaint);
+		thumbPaint.setStyle(Paint.Style.STROKE);
+		thumbPaint.setColor(thumbBorderColor);
+		thumbPaint.setStrokeWidth(2);
+		canvas.drawCircle(x, y, mRadius, thumbPaint);
 	}
 
-	/**
-	 * 设置progressbar进度最大值
-	 */
-	public void setMax(float max) {
-		if (max > 0) {
-			this.max = max;
-			postInvalidate();
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		this.y = event.getY();
+		progress= (sHeight-y)/sHeight*100;
+		switch(event.getAction()) {
+			case MotionEvent.ACTION_DOWN:
+				break;
+			case MotionEvent.ACTION_UP:
+				if (onStateChangeListener!=null){
+					onStateChangeListener.onStopTrackingTouch(this, progress);
+				}
+				break;
+			case MotionEvent.ACTION_MOVE:
+				if (onStateChangeListener!=null){
+					onStateChangeListener.OnStateChangeListener(this, progress);
+				}
+				setProgress(progress);
+				this.invalidate();
+				break;
 		}
+
+		return true;
 	}
 
-	/**
-	 * 设置progressbar进度
-	 */
+
+	public interface OnStateChangeListener{
+		void OnStateChangeListener(View view, float progress);
+		void onStopTrackingTouch(View view, float progress);
+	}
+
+	public void setOnStateChangeListener(OnStateChangeListener onStateChangeListener){
+		this.onStateChangeListener=onStateChangeListener;
+	}
+
 	public void setProgress(float progress) {
 		this.progress = progress;
-		if (this.progress > getMax()) {
-			this.progress %= getMax();
-		}
-		postInvalidate();
-	}
-	/**
-	 * 设置是否有边框
-	 * */
-	public void setHasLine(boolean hasLine) {
-		mHasLine = hasLine;
-		postInvalidate();
+		invalidate();
 	}
 }
