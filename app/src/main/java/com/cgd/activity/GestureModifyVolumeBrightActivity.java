@@ -120,7 +120,7 @@ public class GestureModifyVolumeBrightActivity extends FragmentActivity implemen
                 }
                 int percentage = (currentVolume * 100) / maxVolume;
                 //geture_tv_volume_percentage.setText(percentage + "%");
-                seekBar_volume.setProgressSpecialPage(percentage,100);
+                //seekBar_volume.setProgressSpecialPage(percentage,100);
                 audiomanager.setStreamVolume(AudioManager.STREAM_MUSIC,currentVolume, 0);
             }
         }
@@ -142,7 +142,7 @@ public class GestureModifyVolumeBrightActivity extends FragmentActivity implemen
                 lpa.screenBrightness = 0.01f;
             getWindow().setAttributes(lpa);
             //geture_tv_bright_percentage.setText((int) (lpa.screenBrightness * 100) + "%");
-           seekBar_bright.setProgressSpecialPage((int) (lpa.screenBrightness * 100),100);
+           //seekBar_bright.setProgressSpecialPage((int) (lpa.screenBrightness * 100),100);
         }
 
         firstScroll = false;// 第一次scroll执行完成，修改标志

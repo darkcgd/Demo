@@ -1,53 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-   >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="自定义垂直进度条"/>
+    android:background="#dddddddd"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="30px"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
 
-        <com.cgd.widget.VerticalColorSeekBar
-            android:id="@+id/vpb1"
-            android:layout_width="4dp"
-            android:layout_height="350dp"
-            app:vp_finished_color="#FFFFFF"
-            app:vp_max="100"
-            app:vp_progress="50"
-            />
+        <RelativeLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/layout_radius_blue"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginRight="35dp"
+            >
 
-        <com.cgd.widget.VerticalColorSeekBar
-            android:id="@+id/vpb2"
-            android:layout_width="40dp"
-            app:vp_hasline="true"
-            android:layout_height="350dp"
-            app:vp_hasText="true"
-            android:layout_marginLeft="20dp"
-            app:vp_finished_color="#e92e11"/>
+            <com.cgd.widget.VerticalColorSeekBar
+                android:id="@+id/vpb_inner_temper"
+                android:layout_width="15dp"
+                android:layout_height="300dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"/>
 
-        <com.cgd.widget.VerticalColorSeekBar
-            android:id="@+id/vpb3"
-            android:layout_width="40dp"
-            android:layout_height="350dp"
-            app:vp_progress="70"
-            android:layout_marginLeft="20dp"
-            app:vp_finished_color="#fc980c"
-            app:vp_unfinished_color="#01bc36"
-            />
+            <TextView
+                android:id="@+id/tv_current_temper"
+                android:layout_below="@id/vpb_inner_temper"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:background="@drawable/layout_radius_blue"
+            >
+            <TextView
+                android:id="@+id/tv_brightness"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                />
+
+            <com.cgd.widget.VerticalColorSeekBar
+                android:id="@+id/vpb_brightness"
+                android:layout_width="10dp"
+                android:layout_height="300dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"/>
+
+            <TextView
+                android:id="@+id/tv_current_brightness"
+                android:layout_below="@id/vpb_brightness"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="0"
+                />
+        </RelativeLayout>
     </LinearLayout>
-
 </LinearLayout>
