@@ -1,5 +1,6 @@
 package com.cgd.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -23,7 +24,7 @@ import android.widget.TextView;
 import com.cgd.R;
 import com.cgd.widget.BaseVisualizerView;
 
-public class AudioFxActivity extends AppCompatActivity {
+public class AudioFxActivity extends Activity {
     private static final String TAG = "AudioFxActivity";
 
     private static final float VISUALIZER_HEIGHT_DIP = 50f;
@@ -188,7 +189,8 @@ public class AudioFxActivity extends AppCompatActivity {
                         .getDisplayMetrics().density)));
         mLayout.addView(mBaseVisualizerView);
 
-        mVisualizer = new Visualizer(mMediaPlayer.getAudioSessionId());
+        int audioSessionId = mMediaPlayer.getAudioSessionId();
+        mVisualizer = new Visualizer(audioSessionId);
 //		mVisualizer = new Visualizer(0);
         // 参数内必须是2的位数
         mVisualizer.setCaptureSize(Visualizer.getCaptureSizeRange()[1]);
