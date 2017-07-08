@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.cgd.activity.AudioFxActivity;
+import com.cgd.activity.ColorFilterActivity;
 import com.cgd.activity.DayNightActivity;
 import com.cgd.activity.GestureModifyVolumeActivity;
 import com.cgd.activity.GestureModifyVolumeBrightActivity;
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(new Params("SeekBar多色进度条",VerticalColorSeekBarActivity.class));
         list.add(new Params("滑动置顶",ScrollViewToTopActivity.class));
         list.add(new Params("均衡器",AudioFxActivity.class));
+        list.add(new Params("Imageview的点击效果",ColorFilterActivity.class));
     }
 
 
