@@ -33,7 +33,8 @@
         <activity android:name=".activity.VerticalPageSeekBarActivity" />
         <activity android:name=".activity.GestureModifyVolumeBrightActivity" />
         <activity android:name=".activity.ScrllowViewActivity" />
-        <activity android:name=".activity.VerticalColorSeekBarActivity"></activity>
+        <activity android:name=".activity.VerticalColorSeekBarActivity" />
+        <activity android:name=".activity.AudioFxActivity"></activity>
     </application>
 
 </manifest>
