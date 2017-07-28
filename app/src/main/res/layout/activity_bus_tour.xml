@@ -1,0 +1,87 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </android.support.v7.widget.RecyclerView>
+        <RelativeLayout
+            android:id="@+id/rl_head_top"
+            android:layout_width="match_parent"
+            android:layout_height="301px"
+            android:background="#404754">
+
+            <TextView
+                android:id="@+id/bus_line_title"
+                android:layout_width="358px"
+                android:layout_height="170px"
+                android:layout_marginLeft="60px"
+                android:layout_marginRight="60px"
+                android:layout_marginTop="45px"
+                android:background="@mipmap/bus_license_number"
+                android:gravity="center"
+                android:text="观光一路一路"
+                android:textColor="@color/white"
+                android:textSize="60px" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="281px"
+                android:layout_toRightOf="@id/bus_line_title"
+                android:paddingBottom="55px"
+                android:paddingTop="45px">
+
+                <ImageView
+                    android:id="@+id/yellow"
+                    android:layout_width="89px"
+                    android:layout_height="107px"
+                    android:src="@mipmap/bus_historic_sites"
+                    android:layout_marginRight="20px"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/green"
+                    android:layout_width="89px"
+                    android:layout_height="107px"
+                    android:layout_toRightOf="@id/yellow"
+                    android:layout_marginRight="20px"
+                    android:src="@mipmap/bus_natural_scenery"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/blue"
+                    android:layout_width="89px"
+                    android:layout_height="107px"
+                    android:layout_toRightOf="@id/green"
+                    android:src="@mipmap/bus_institutional_revolution"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/start_end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="东站/西站"
+                    android:textColor="#f2f2f2" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="20px"
+                android:layout_alignParentBottom="true"
+                android:background="#363d4a" />
+        </RelativeLayout>
+    </FrameLayout>
+
+
+</RelativeLayout>

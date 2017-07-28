@@ -11,10 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.cgd.activity.BusTourActivity;
 import com.cgd.activity.DayNightActivity;
 import com.cgd.activity.GestureModifyVolumeActivity;
 import com.cgd.activity.GestureModifyVolumeBrightActivity;
 import com.cgd.activity.MVPActivity;
+import com.cgd.activity.MulItemActivity;
+import com.cgd.activity.PinnedHeaderExpandableActivity;
 import com.cgd.activity.PopInPopUpActivity;
 import com.cgd.activity.PullRefreshActivity;
 import com.cgd.activity.RetrofitActivity;
@@ -23,6 +26,7 @@ import com.cgd.activity.RxjavaActivity;
 import com.cgd.activity.SceenChangeActivity;
 import com.cgd.activity.ScrllowViewActivity;
 import com.cgd.activity.ScrollViewToTopActivity;
+import com.cgd.activity.StickyHeadersRecyclerViewActivity;
 import com.cgd.activity.VerticalColorSeekBarActivity;
 import com.cgd.activity.VerticalPageSeekBarActivity;
 import com.cgd.bean.Params;
@@ -58,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
         list.add(new Params("垂直SeekBar",VerticalPageSeekBarActivity.class));
         list.add(new Params("SeekBar多色进度条",VerticalColorSeekBarActivity.class));
         list.add(new Params("滑动置顶",ScrollViewToTopActivity.class));
+        list.add(new Params("ExpandableListView滑动置顶",PinnedHeaderExpandableActivity.class));
+        list.add(new Params("RecyclerView滑动置顶",StickyHeadersRecyclerViewActivity.class));
+        list.add(new Params("RecyclerView滑动置顶2",BusTourActivity.class));
+        list.add(new Params("RecyclerView多布局",MulItemActivity.class));
     }
 
 

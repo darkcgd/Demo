@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#babdbf"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="125px"
+        android:background="#363d4a"
+        android:visibility="visible">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="56px"
+            android:layout_alignParentBottom="true"
+            android:background="#babdbf" />
+
+        <LinearLayout
+            android:id="@+id/line_btn_bus"
+            android:layout_width="294px"
+            android:layout_height="94px"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="28px"
+            android:layout_marginRight="35px"
+            android:layout_marginTop="26px"
+            android:background="@drawable/bus_go"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/bus_sitting_position"
+                android:drawablePadding="15px"
+                android:text="我已上车"
+                android:textColor="#fcfcfc" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/line_bus_station"
+            android:layout_width="294px"
+            android:layout_height="94px"
+            android:layout_marginTop="26px"
+            android:layout_toLeftOf="@id/line_btn_bus"
+            android:background="@drawable/bus_to_station"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/bus_walk"
+                android:drawablePadding="15px"
+                android:text="去公交站"
+                android:textColor="#9ea7b5" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="313px"
+        android:layout_marginBottom="20px"
+        android:layout_marginLeft="68px"
+        android:layout_marginTop="20px">
+
+        <ImageView
+            android:id="@+id/point_img"
+            android:layout_width="303px"
+            android:layout_height="303px"
+            android:layout_marginLeft="10px"
+            android:layout_marginTop="10px"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/test" />
+
+        <ImageView
+            android:id="@+id/type"
+            android:layout_width="88px"
+            android:layout_height="88px"
+            android:alpha="0.7"
+            android:background="#191b23"
+            android:src="@mipmap/bus_historic_sites_nocircle" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="303px"
+            android:layout_marginTop="10px"
+            android:layout_toRightOf="@id/point_img"
+            android:background="#d3d6d8"
+            android:orientation="vertical"
+            android:paddingLeft="50px">
+
+            <TextView
+                android:id="@+id/point_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="大峡谷"
+                android:textColor="#9a9a9a"
+                android:textSize="40px" />
+
+            <View
+                android:layout_width="20px"
+                android:layout_height="20px"
+                android:layout_marginBottom="30px"
+                android:layout_marginTop="22px"
+                android:background="#9a9a9a" />
+
+            <TextView
+                android:id="@+id/point_descrition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="这里是中国中央电视台"
+                android:textColor="#9a9a9a"
+                android:textSize="35px" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>
