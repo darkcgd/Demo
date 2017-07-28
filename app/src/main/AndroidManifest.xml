@@ -24,6 +24,7 @@
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
         android:name=".TheApp"
@@ -60,6 +61,9 @@
         <activity android:name=".activity.StickyHeadersRecyclerViewActivity" />
         <activity android:name=".activity.BusTourActivity" />
         <activity android:name=".activity.MulItemActivity"></activity>
+        <activity android:name=".activity.AudioFxActivity" />
+        <activity android:name=".activity.ColorFilterActivity"></activity>
+>>>>>>> 5a41e8392e7500488e5456cc60c9300873abd4db
     </application>
 
 </manifest>
