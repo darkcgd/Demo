@@ -11,12 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-<<<<<<< HEAD
 import com.cgd.activity.BusTourActivity;
-=======
 import com.cgd.activity.AudioFxActivity;
 import com.cgd.activity.ColorFilterActivity;
->>>>>>> 5a41e8392e7500488e5456cc60c9300873abd4db
 import com.cgd.activity.DayNightActivity;
 import com.cgd.activity.GestureModifyVolumeActivity;
 import com.cgd.activity.GestureModifyVolumeBrightActivity;
